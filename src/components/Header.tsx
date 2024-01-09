@@ -4,22 +4,40 @@ import {
     notificationsIcon,
     plusCircleIcon,
     userIcon,
-    gearIcon
+    gearIcon,
+    xIcon
 } from '@workday/canvas-system-icons-web';
 import InputGroupFormFieldForwarder from "./SearchInput";
 import IconButton from "./IconButton";
 import logo from "../assets/dummy-logo-5b 1.png"
 import { toggleSidebar } from "../utils/helpers";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { SidebarContext } from "../context/SidebarProvider";
+import * as React from 'react';
+import {
+    SidePanel,
+    useSidePanel,
+    SidePanelTransitionStates,
+} from '@workday/canvas-kit-preview-react/side-panel';
+import { Text } from '@workday/canvas-kit-react/text';
 
+interface HeaderProps {
+    handleSidebar: () => void
+}
 
-const Header = () => {
+const Header = ({handleSidebar}: HeaderProps) => {
     const { openSidebar } = useContext(SidebarContext)
+    
     return (
         <Flex flexDirection="row" alignItems="center">
             <Flex.Item>
-                <TertiaryButton onClick={() => openSidebar()} colors={{focus: {focusRing: {outline: "none"}}}} icon={justifyIcon} />
+                <TertiaryButton
+                    onClick={handleSidebar}
+                    role="button"
+                    //onClick={() => openSidebar()} 
+                    //colors={{focus: {focusRing: {outline: "none"}}}} 
+                    icon={justifyIcon}
+                />
                 {/* <IconButton>
                     <SystemIcon icon={justifyIcon} />
                 </IconButton> */}
@@ -35,7 +53,7 @@ const Header = () => {
             </Flex.Item>
             <Flex.Item cs={{ marginLeft: 'auto' }}>
                 <Flex gap='5px' alignItems="center">
-                {/* <TertiaryButton onClick={() => openSidebar()} colors={{focus: {focusRing: {outline: "none"}}}} icon={justifyIcon} /> */}
+                    {/* <TertiaryButton onClick={() => openSidebar()} colors={{focus: {focusRing: {outline: "none"}}}} icon={justifyIcon} /> */}
                     <PrimaryButton colors={{ default: { background: 'black' }, hover: { background: 'black' }, focus: { background: "red", focusRing: { outline: "none" } } }} icon={plusCircleIcon} size="small" iconPosition="end">
                         CREATE
                     </PrimaryButton>
@@ -45,7 +63,7 @@ const Header = () => {
                     <TertiaryButton icon={notificationsIcon} size="medium" />
                     <TertiaryButton icon={userIcon} />
                     <TertiaryButton icon={gearIcon} />
-                   
+
                 </Flex>
             </Flex.Item>
         </Flex>

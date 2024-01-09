@@ -80,3 +80,94 @@ button:focus, button:focus-visible {
   /* outline: 4px auto -webkit-focus-ring-color; */
   outline: none;
 }
+
+.nav-container ul {
+  /* overflow: hidden; */
+}
+
+.list-item-with-icon{
+  display: inline-flex;
+  gap: 4px;
+}
+
+.nav-link-container{
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 0.375rem;
+  margin-bottom: 0.25rem;
+  font-size: 14px;
+}
+.active {
+  background-color: #000;
+  color: #fff;
+}
+.inactive{
+  background-color: #D9D9D9;
+  color: #000;
+}
+.active span .wd-icon-fill {
+  fill: #fff;
+}
+.nav-sub-link-container{
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 12px;
+}
+
+.nav-link-container:hover{
+  color: #fff;
+  background-color: #000;
+}
+.nav-link-container:hover .wd-icon-fill{
+  fill: #fff;
+}
+
+.sidebar-workday{
+  position: fixed;
+  z-index: 10000;
+  height: '100dvh';
+  top: 0;
+  padding: 8px;
+  flex-direction: column;
+  gap: 2;
+  flex-shrink: 0;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.justify-space{
+  justify-content: space-between;
+}
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}

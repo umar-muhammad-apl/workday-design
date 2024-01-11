@@ -1,4 +1,4 @@
-import { Flex, FormField, PrimaryButton, SecondaryButton, SystemIcon, TertiaryButton, background } from "@workday/canvas-kit-react"
+import { Flex, FormField, PrimaryButton, SecondaryButton, SystemIcon, TertiaryButton, background, colors } from "@workday/canvas-kit-react"
 import {
     justifyIcon,
     notificationsIcon,
@@ -25,26 +25,47 @@ interface HeaderProps {
     handleSidebar: () => void
 }
 
+
+const getIconColor = () => {
+    return {
+      default: {
+        icon: colors.blueberry300,
+      },
+      hover: {
+        icon: colors.blueberry300,
+      },
+      active: {
+        icon: colors.blueberry300, 
+     },
+      focus: {
+        
+      },
+      disabled: {},
+    };
+  };
+
 const Header = ({handleSidebar}: HeaderProps) => {
     const { openSidebar } = useContext(SidebarContext)
     
     return (
-        <Flex flexDirection="row" alignItems="center">
+        <Flex flexDirection="row" alignItems="center" paddingY={10}>
             <Flex.Item>
                 <TertiaryButton
                     onClick={handleSidebar}
                     role="button"
-                    //onClick={() => openSidebar()} 
+                    //onClick={() => openSidebar()}
+                    //onClick={toggleSidebar} 
                     //colors={{focus: {focusRing: {outline: "none"}}}} 
+                    colors={getIconColor()}
                     icon={justifyIcon}
                 />
                 {/* <IconButton>
                     <SystemIcon icon={justifyIcon} />
                 </IconButton> */}
             </Flex.Item>
-            <Flex.Item>
+            {/* <Flex.Item>
                 <img src={logo} alt="logo" height={60} style={{ alignSelf: "center" }} />
-            </Flex.Item>
+            </Flex.Item> */}
             <Flex.Item>
                 <FormField style={{ margin: 0, border: "none", outline: "none" }}>
                     <InputGroupFormFieldForwarder />
@@ -54,16 +75,25 @@ const Header = ({handleSidebar}: HeaderProps) => {
             <Flex.Item cs={{ marginLeft: 'auto' }}>
                 <Flex gap='5px' alignItems="center">
                     {/* <TertiaryButton onClick={() => openSidebar()} colors={{focus: {focusRing: {outline: "none"}}}} icon={justifyIcon} /> */}
-                    <PrimaryButton colors={{ default: { background: 'black' }, hover: { background: 'black' }, focus: { background: "red", focusRing: { outline: "none" } } }} icon={plusCircleIcon} size="small" iconPosition="end">
+                    <PrimaryButton 
+                        colors={{ default: { background: colors.blueberry300 }, hover: { background: colors.blueberry300 }, active: {background: colors.blueberry300}, focus: { background: colors.blueberry300, focusRing: { outline: "none" } } }} 
+                        icon={plusCircleIcon} 
+                        size="small" 
+                        iconPosition="end"
+                    >
                         CREATE
                     </PrimaryButton>
-                    <PrimaryButton size="small" cs={{ border: '1px solid black', outline: "none", color: 'black' }} colors={{ default: { background: 'white' }, hover: { background: 'black' }, focus: { background: "red", focusRing: { outline: "none" } } }}>
+                    <PrimaryButton 
+                        size="small" 
+                        //cs={{ icon: 'red', border: '1px solid black', outline: "none", color: 'black' }} 
+                        colors={{ default: { background: 'white', border: '1px solid red', label: colors.blueberry300 }, hover: { background: colors.blueberry300 }, focus: { background: "red", focusRing: { outline: "none" } } }}>
                         RECENT HISTORY
                     </PrimaryButton>
-                    <TertiaryButton icon={notificationsIcon} size="medium" />
-                    <TertiaryButton icon={userIcon} />
-                    <TertiaryButton icon={gearIcon} />
-
+                    
+                    <IconButton icon={notificationsIcon} />
+                    <IconButton icon={userIcon} />
+                    <IconButton icon={gearIcon} />
+        
                 </Flex>
             </Flex.Item>
         </Flex>

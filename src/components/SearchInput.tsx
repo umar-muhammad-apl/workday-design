@@ -7,7 +7,7 @@ import {
 const InputGroupFormFieldForwarder = (props: {}) => {
     return (
         <InputGroup cs={{ border: "none", outline: "none"}} width={280}>
-            <InputGroup.Input backgroundColor="#D9D9D9" {...props} />
+            <InputGroup.Input backgroundColor="#F0F7FF" {...props} />
             <InputGroup.InnerEnd >
                 <TertiaryButton as="button" colors={{ hover: { background: 'transparent' } }} tabIndex={-1} icon={searchIcon} accentHover="transparent" />
             </InputGroup.InnerEnd>

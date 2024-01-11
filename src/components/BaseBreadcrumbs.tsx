@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Breadcrumbs, useBreadcrumbsModel } from '@workday/canvas-kit-react/breadcrumbs';
+import { Breadcrumbs } from '@workday/canvas-kit-react/breadcrumbs';
 import { Box } from '@workday/canvas-kit-react/layout';
-import { SegmentedControl } from '@workday/canvas-kit-preview-react/segmented-control';
 import { Link, useLocation } from 'react-router-dom';
+import { colors } from "@workday/canvas-kit-react"
+
 
 export interface Breadcrumb {
   id: string;
@@ -18,27 +19,12 @@ const BaseBreadcrumbs = () => {
 
   const location = useLocation()
   let currentLink = '';
-  //const crumbs = location.pathname.split('/').filter(crumb => crumb !== '').map((crumb: string, index: number, { length }) => ({ text: crumb, link: index + 1 === length ? null : currentLink += `/${crumb}` }))
-  const crumbs = location.pathname.split('/')
-
-  console.log('location', crumbs)
-
+  const crumbs = location.pathname.split('/').filter(crumb => crumb !== '').map((crumb: string, index: number, { length }) => ({ text: crumb, link: index + 1 === length ? null : currentLink += `/${crumb}` }))
   
-
-
-
-
-  const model = useBreadcrumbsModel({ items });
-  const [containerWidth, setContainerWidth] = React.useState('350px');
-
   return (
-    <div>
-      <Box>
+      <Box paddingY={5} paddingX={5} backgroundColor={colors.blueberry100}>
         <Breadcrumbs items={crumbs} aria-label="Breadcrumbs">
-      
-      
           <Breadcrumbs.List overflowButton={<Breadcrumbs.OverflowButton aria-label="More links" />}>
-            
             {(item: Breadcrumb) =>
               item.link ? (
                 <Breadcrumbs.Item>
@@ -50,15 +36,9 @@ const BaseBreadcrumbs = () => {
                 <Breadcrumbs.CurrentItem>{item.text}</Breadcrumbs.CurrentItem>
               )
             }
-            
-            
           </Breadcrumbs.List>
         </Breadcrumbs>
-        {/* <ul className="breadcrumb">
-
-        </ul> */}
       </Box>
-    </div>
   );
 };
 

@@ -29,7 +29,6 @@ export const SidebarProvider: React.FC<SidebarProviderProps> = ({ children }) =>
   };
    
   const closeSidebar = () => {
-    console.log('close-sidebar')
     setIsShowingSidebar(0);
   };
    

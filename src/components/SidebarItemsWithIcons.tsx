@@ -50,7 +50,7 @@ interface SidebarItemsProps {
     showOnlyIcons: boolean
 }
 
-const SidebarItems = ({showOnlyIcons}: SidebarItemsProps ) => {
+const SidebarItemsWithIcons = ({showOnlyIcons}: SidebarItemsProps ) => {
 
     const [showSubNav, setShowSubNav] = React.useState<any>({
         attendance: false,
@@ -114,6 +114,7 @@ const SidebarItems = ({showOnlyIcons}: SidebarItemsProps ) => {
                                     )
                                 ) : null}
                             </NavLink>
+                            <div className="sub-list">
                             {(showSubNav[item.id] ||
                                 window.location.pathname.split("/")[1] ===
                                 item.route.split("/")[1]) &&
@@ -140,6 +141,7 @@ const SidebarItems = ({showOnlyIcons}: SidebarItemsProps ) => {
                                         </div>
                                     </NavLink>
                                 ))}
+                             </div>   
                         </li>
                     )
                 })}
@@ -148,4 +150,4 @@ const SidebarItems = ({showOnlyIcons}: SidebarItemsProps ) => {
     )
 }
 
-export default SidebarItems
+export default SidebarItemsWithIcons

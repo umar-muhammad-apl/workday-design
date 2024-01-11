@@ -69,7 +69,7 @@ const Sidebar = () => {
         }
     };
 
-    console.log('showSubNav', showSubNav)
+    //console.log('showSubNav', showSubNav)
 
     return (
         <aside
@@ -77,6 +77,7 @@ const Sidebar = () => {
             style={{
                 position: 'fixed',
                 transform: `translateX(calc(100% * (${isShowingSidebar} - 1)))`,
+                //transform: 'translateX(calc(100% * (var(--SideNavigation-slideIn, 0) - 1)))',
                 transition: 'transform 0.4s, width 0.4s',
                 zIndex: 10000,
                 backgroundColor: 'white',
@@ -102,8 +103,10 @@ const Sidebar = () => {
                     width: '100vw',
                     height: '100vh',
                     opacity: isShowingSidebar,
+                    ///opacity: 'var(--SideNavigation-slideIn)',
                     backgroundColor: 'rgba(var(--neutral-darkChannel, 11 13 14) / 0.25)',
                     transition: 'opacity 0.4s',
+                    //transform: 'translateX(calc(100% * (var(--SideNavigation-slideIn, 0) - 1) + var(--SideNavigation-slideIn, 0) * var(--Sidebar-width, 0px)))'
                     transform: `translateX(calc(100% * (${isShowingSidebar} - 1) + ${isShowingSidebar} * var(--Sidebar-width, 0px)))`,
 
                 }}
@@ -129,7 +132,7 @@ const Sidebar = () => {
                                     end
                                     //className="nav-link-container"
                                     className={({ isActive }) =>
-                                        `nav-link-container ${isActive ||
+                                        `nav-link-container justify-space ${isActive ||
                                             window.location.pathname.split("/")[1] ===
                                             item.route.split("/")[1] || (showSubNav[item.id])
                                             ? "active"
@@ -142,7 +145,7 @@ const Sidebar = () => {
                                         <SystemIcon
                                             icon={item.icon}
                                             fill="#000"
-                                            fillHover="#fff"
+                                            fillHover={colors.blueberry300}
                                             size={20}
                                         />
                                         <span>{item.label}</span>
@@ -153,9 +156,9 @@ const Sidebar = () => {
                                             window.location.pathname.split("/")[1] ===
                                             item.route.split("/")[1]
                                         ) ? (
-                                            <SystemIcon fill="#000" fillHover="#fff" icon={caretRightSmallIcon} size={20} />
+                                            <SystemIcon fill="#000" fillHover={colors.blueberry300} icon={caretRightSmallIcon} size={20} />
                                         ) : (
-                                            <SystemIcon fill="#000" fillHover="#fff" icon={caretDownSmallIcon} size={20} />
+                                            <SystemIcon fill="#000" fillHover={colors.blueberry300} icon={caretDownSmallIcon} size={20} />
                                         )
                                     ) : null}
                                 </NavLink>
@@ -177,7 +180,7 @@ const Sidebar = () => {
                                                 <SystemIcon
                                                     icon={subNavItem.icon}
                                                     fill="#000"
-                                                    fillHover="#fff"
+                                                    fillHover={colors.blueberry300}
                                                     size={20}
                                                 />
                                                 <span>{subNavItem.label}</span>

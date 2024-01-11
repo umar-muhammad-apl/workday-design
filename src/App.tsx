@@ -8,28 +8,41 @@ import SidebarWorkday from './components/SidebarWorkday'
 import { Flex, flex } from '@workday/canvas-kit-react'
 import { useSidePanel } from '@workday/canvas-kit-preview-react'
 import BaseBreadcrumbs from './components/BaseBreadcrumbs'
+import RootNavigator from './components/RootNavigator'
+//import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
+
 // import './App.css'
 
 const App = () => {
-  const { expanded, panelProps, labelProps, controlProps, setExpanded } = useSidePanel({ initialExpanded: false });
-  // const [panelState, setPanelState] = React.useState<SidePanelTransitionStates>(
+  //const { expanded, panelProps, labelProps, controlProps, setExpanded } = useSidePanel({ initialExpanded: true });
+  //const [panelState, setPanelState] = React.useState<SidePanelTransitionStates>(
   //   expanded ? 'expanded' : 'collapsed'
-  // );
+  //);
+  //const defaultTheme = createTheme();
   return (
-    <SidebarProvider>
-    <div style={{display: 'flex', height: '100vh'}}>
-      {/* <Header /> */}
+
+    <div>
+     
+      <SidebarProvider>
+      {/* <ThemeProvider theme={defaultTheme}>
+     
+        </ThemeProvider> */}
+        <RootNavigator />
+      </SidebarProvider>
+      {/* <Header handleSidebar={() => { }} /> */}
       {/* <Sidebar /> */}
-      {/* <SidebarWorkday /> */}
-      <aside style={{ border: '1px solid yellow'}}>
-        <SidebarWorkday sidebarStatus={expanded} />
-      </aside>
-      <main style={{flex: 1, border: '1px solid red'}}>
-        <Header handleSidebar={() => setExpanded(!expanded)} />
-        <BaseBreadcrumbs />
-      </main>
+      {/* workday sidebar */}
+      {/* <div style={{ display: 'flex', height: '100vh' }}>
+          <aside style={{ borderRight: '1px solid yellow'}}>
+            <SidebarWorkday sidebarStatus={expanded} />
+          </aside>
+          <main style={{ flex: 1 }}>
+            <Header handleSidebar={() => setExpanded(!expanded)} />
+            <BaseBreadcrumbs />
+          </main>
+        </div> */}
+      {/* <RootNavigator /> */}
     </div>
-    </SidebarProvider>
   )
 }
 

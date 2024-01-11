@@ -1,3 +1,11 @@
+
+
+/* import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css'; */
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -9,12 +17,16 @@
   /* --SideNavigation-slideIn: 1; */
   --Sidebar-width: 240px;
   --neutral-darkChannel: 50 56 62;
+  --primaryColor: #40a0ff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+
 
 a {
   font-weight: 500;
@@ -99,15 +111,15 @@ button:focus, button:focus-visible {
   font-size: 14px;
 }
 .active {
-  background-color: #000;
-  color: #fff;
+  background-color: #F0F7FF;
+  color: #40a0ff;
 }
 .inactive{
-  background-color: #D9D9D9;
+  /* background-color: #D9D9D9; */
   color: #000;
 }
 .active span .wd-icon-fill {
-  fill: #fff;
+  fill: #40a0ff;
 }
 .nav-sub-link-container{
   margin-top: 4px;
@@ -116,11 +128,11 @@ button:focus, button:focus-visible {
 }
 
 .nav-link-container:hover{
-  color: #fff;
-  background-color: #000;
+  color: #40a0ff;
+  background-color: #F0F7FF;
 }
 .nav-link-container:hover .wd-icon-fill{
-  fill: #fff;
+  fill: #40a0ff;
 }
 
 .sidebar-workday{
@@ -141,33 +153,15 @@ button:focus, button:focus-visible {
 .justify-space{
   justify-content: space-between;
 }
-ul.breadcrumb {
-  padding: 10px 16px;
-  list-style: none;
-  background-color: #eee;
+
+
+.icon-container {
+  position: relative;
 }
 
-/* Display list items side by side */
-ul.breadcrumb li {
-  display: inline;
-  font-size: 18px;
+/* .css-bg58wz span .wd-icon-fill {
+  fill: #40a0ff;
 }
-
-/* Add a slash symbol (/) before/behind each list item */
-ul.breadcrumb li+li:before {
-  padding: 8px;
-  color: black;
-  content: "/\00a0";
-}
-
-/* Add a color to all links inside the list */
-ul.breadcrumb li a {
-  color: #0275d8;
-  text-decoration: none;
-}
-
-/* Add a color on mouse-over */
-ul.breadcrumb li a:hover {
-  color: #01447e;
-  text-decoration: underline;
-}
+.css-bg58wz span:hover .wd-icon-fill {
+  fill: #40a0ff;
+} */
